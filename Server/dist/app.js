@@ -23,7 +23,7 @@ app.use('/api/v1', routes_1.default);
 app.get('/', (req, res, next) => {
     res.status(http_status_1.default.OK).json({
         success: true,
-        message: 'Welcome to the YollowPet API',
+        message: 'Welcome to the portfolio API',
     });
 });
 //global error handler
