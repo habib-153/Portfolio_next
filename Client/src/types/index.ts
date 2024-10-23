@@ -15,3 +15,26 @@ export interface IUser {
   updatedAt?: string;
   __v?: number;
 }
+
+export interface ISkill {
+  _id: string;
+  name: string;
+  logo: string;
+  type: string;
+  createdAt?: string;
+  updatedAt?: string;
+  __v?: number;
+}
+
+export interface IExperience {
+  _id: string;
+  title: string;
+  organization: string;
+  description: string;
+  image: string;
+  startDate: string;
+  endDate: string;
+  createdAt?: string;
+  updatedAt?: string;
+  __v?: number;
+}

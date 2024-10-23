@@ -9,4 +9,4 @@ const router = express.Router();
 router.post('/', auth('ADMIN'),  multerUpload.single('image'), parseBody, ExperienceControllers.createExperience);
 router.get('/', ExperienceControllers.getAllExperience)
 
-export const SkillRoutes = router;
+export const ExperienceRoutes = router;
