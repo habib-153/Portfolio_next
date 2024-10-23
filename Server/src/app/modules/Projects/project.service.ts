@@ -2,7 +2,6 @@ import { TImageFiles } from "../../interfaces/image.interface";
 import { TProject } from "./project.interface";
 import { Project } from "./project.model";
 
-
 const createProjectIntoDB = async(payload: TProject, images: TImageFiles) =>{
     const { Images } = images
 
