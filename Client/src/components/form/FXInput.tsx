@@ -10,6 +10,7 @@ interface IProps {
   type?: string;
   label: string;
   name: string;
+  defaultValue?: string;
 }
 
 export default function FXInput({
@@ -18,7 +19,7 @@ export default function FXInput({
   required = false,
   type = "text",
   label,
-  name,
+  name, defaultValue
 }: IProps) {
   const {
     register,
@@ -26,7 +27,7 @@ export default function FXInput({
   } = useFormContext();
 
   return (
-    <Input
+    <Input defaultValue={defaultValue}
       {...register(name)}
       errorMessage={errors?.[name] ? (errors?.[name]?.message as string) : ""}
       isInvalid={!!errors[name]}

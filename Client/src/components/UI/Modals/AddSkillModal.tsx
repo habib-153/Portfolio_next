@@ -1,40 +1,53 @@
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@nextui-org/modal';
-import React, { useRef } from 'react';
-import { Button } from '@nextui-org/button';
-import { FieldValues, SubmitHandler } from 'react-hook-form';
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+} from "@nextui-org/modal";
+import React, { useRef } from "react";
+import { Button } from "@nextui-org/button";
+import { FieldValues, SubmitHandler } from "react-hook-form";
 import { PressEvent } from "@react-types/shared";
 
-import FXInput from '../../form/FXInput';
-import FXForm from '../../form/FXForm';
+import FXInput from "../../form/FXInput";
+import FXForm from "../../form/FXForm";
+
+import { useCreateSkill } from "@/src/hooks/skill.hook";
+import { ISkill } from "@/src/types";
 
 interface ModalProps {
-    isOpen: boolean;
-    onOpenChange: (open: boolean) => void;
-  }
-  
-const AddSkillModal = ({isOpen, onOpenChange}: ModalProps) => {
-    const formRef = useRef<HTMLFormElement>(null);
+  isOpen: boolean;
+  onOpenChange: (open: boolean) => void;
+}
 
-    const handleAddSkill: SubmitHandler<FieldValues> = (data) => {
-    
-        // handleAddSkillUser(data);
-        onOpenChange(false);
-      };
-    
-      const handleSubmit = () => {
-        if (formRef.current) {
-          formRef.current.dispatchEvent(
-            new Event("submit", { cancelable: true, bubbles: true })
-          );
-        }
-      };
+const AddSkillModal = ({ isOpen, onOpenChange }: ModalProps) => {
+  const formRef = useRef<HTMLFormElement>(null);
+  const { mutate: addSkill } = useCreateSkill()
 
-    return (
-        <Modal
+  const handleAddSkill: SubmitHandler<FieldValues> = (data) => {
+    const payload = {
+      ...data
+    } as ISkill;
+
+    addSkill(payload);
+    onOpenChange(false);
+  };
+
+  const handleSubmit = () => {
+    if (formRef.current) {
+      formRef.current.dispatchEvent(
+        new Event("submit", { cancelable: true, bubbles: true })
+      );
+    }
+  };
+
+  return (
+    <Modal
       classNames={{
         body: "py-6",
         backdrop: "bg-[#292f46]/50 backdrop-opacity-40",
-        base: "border-[#292f46] bg-white dark:bg-[#19172c] text-[#a8b0d3]",
+        base: "border-[#292f46] bg-white dark:bg-[#19172c]",
         header: "border-b-[1px] border-[#292f46]",
         footer: "border-t-[1px] border-[#292f46]",
       }}
@@ -47,20 +60,20 @@ const AddSkillModal = ({isOpen, onOpenChange}: ModalProps) => {
           <>
             <ModalHeader className="flex flex-col gap-1 items-center justify-center">
               <h2 className="text-2xl font-bold text-gray-800">
-Add New Skill
+                Add New Skill
               </h2>
             </ModalHeader>
             <ModalBody>
               <div className="w-full">
-                <FXForm
-                  ref={formRef}
-                  onSubmit={handleAddSkill}
-                >
+                <FXForm ref={formRef} onSubmit={handleAddSkill}>
                   <div className="py-3">
                     <FXInput label="Skill Name" name="name" type="text" />
                   </div>
                   <div className="py-3">
                     <FXInput label="Skill Logo Link" name="logo" type="text" />
+                  </div>
+                  <div className="py-3">
+                    <FXInput label="Type" name="type" type="text" />
                   </div>
                 </FXForm>
               </div>
@@ -75,14 +88,14 @@ Add New Skill
                 Cancel
               </Button>
               <Button className="flex-1" color="primary" onPress={handleSubmit}>
-                Update Profile
+                Add Skill
               </Button>
             </ModalFooter>
           </>
         )}
       </ModalContent>
     </Modal>
-    );
+  );
 };
 
 export default AddSkillModal;

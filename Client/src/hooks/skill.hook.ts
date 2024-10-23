@@ -7,8 +7,8 @@ import { ISkill } from "../types";
 export const useCreateSkill = () => {
   return useMutation<any, Error, ISkill>({
     mutationKey: ["CREATE_SKILL"],
-    mutationFn: async (data) => {
-      return toast.promise(createSkill(data), {
+    mutationFn: async (payload) => {
+      return toast.promise(createSkill(payload), {
         loading: "Adding Skill...",
         success: `Skill added successfully!`,
         error: "Error when adding the Skill.",

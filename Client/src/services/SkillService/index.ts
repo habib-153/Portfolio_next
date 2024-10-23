@@ -1,23 +1,34 @@
+'use server'
 import { revalidateTag } from "next/cache";
 
-import envConfig from "@/src/config/envConfig";
 import axiosInstance from "@/src/libs/AxiosInstance";
+import envConfig from "@/src/config/envConfig";
 import { ISkill } from "@/src/types";
 
-export const createSkill = async(data: ISkill) => {
-    const res = await axiosInstance.post("/skills", data);
-    
-    revalidateTag('skills')
+export const createSkill = async (payload: ISkill): Promise<any> => {
+  try{
+    const {data} = await axiosInstance.post('/skills', payload)
 
-    return res.data;
-}
+    revalidateTag("skills");
 
-export const getSkills = async() => {
-    const res = await fetch(`${envConfig.baseApi}/skills`, {
-        next: {
-            tags: ['skills']
-        }
-    });
+    return data;
+  }
+  catch (error: any) {
+    const errorMessage =
+      error?.response?.data?.message ||
+      error?.message ||
+      "Unknown error occurred";
 
-    return res.json();
-}
+    throw new Error(errorMessage);
+  }
+};
+
+export const getSkills = async () => {
+  const res = await fetch(`${envConfig.baseApi}/skills`, {
+    next: {
+      tags: ["skills"],
+    },
+  });
+
+  return res.json();
+};

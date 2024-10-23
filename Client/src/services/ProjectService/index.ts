@@ -1,3 +1,4 @@
+'use server'
 import { revalidateTag } from "next/cache";
 
 import envConfig from "@/src/config/envConfig";

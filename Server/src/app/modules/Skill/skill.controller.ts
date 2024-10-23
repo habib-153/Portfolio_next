@@ -4,8 +4,7 @@ import sendResponse from "../../utils/sendResponse";
 import { SkillServices } from "./skill.service";
 
 const createSkill = catchAsync(async (req, res) => {
-    const payload = req.body;
-    const result = await SkillServices.createSkillInDB(payload);
+    const result = await SkillServices.createSkillInDB(req.body);
 
     sendResponse(res, {
         success: true,
