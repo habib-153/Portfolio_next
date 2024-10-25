@@ -21,3 +21,9 @@ export const getAllProject = async() => {
 
     return res.json();
 }
+
+export const getSingleProject = async(id: string) => {
+    const res = await axiosInstance.get(`/projects/${id}`);
+    
+    return res.data;
+}

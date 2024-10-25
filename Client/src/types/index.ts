@@ -38,3 +38,14 @@ export interface IExperience {
   updatedAt?: string;
   __v?: number;
 }
+
+export interface IBlog {
+  _id: string;
+  title: string;
+  description: string;
+  category: string[];
+  images: string[];
+  createdAt: string;
+  updatedAt?: string;
+  __v?: number;
+}

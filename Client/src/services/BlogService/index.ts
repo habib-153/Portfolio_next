@@ -21,3 +21,9 @@ export const getAllBlogs = async() => {
 
     return res.json();
 }
+
+export const getSingleBlog = async(id: string) => {
+    const res = await axiosInstance.get(`/blogs/${id}`);
+
+    return res.data;
+}

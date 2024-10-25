@@ -8,5 +8,6 @@ const router = express.Router();
 
 router.post('/', auth('ADMIN'), multerUpload.fields([{name: 'Images'}]), parseBody, BlogControllers.createBlog);
 router.get('/', BlogControllers.getAllBlog)
+router.get('/:id', BlogControllers.getSingleBlog)
 
 export const BlogRoutes = router;

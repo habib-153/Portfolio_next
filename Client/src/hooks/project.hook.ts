@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 
-import { createProject, getAllProject } from "../services/ProjectService";
+import { createProject, getAllProject, getSingleProject } from "../services/ProjectService";
 
 export const useCreateProject = () => {
   return useMutation<any, Error, FormData>({
@@ -22,3 +22,11 @@ export const useGetAllProject = () => {
     queryFn: async () => await getAllProject(),
   });
 };
+
+export const useGetSingleProject = (id: string) => {
+  return useQuery({
+    queryKey: ["SINGLE_PROJECT", id],
+    queryFn: async () => await getSingleProject(id),
+    enabled: !!id,
+  });
+}
