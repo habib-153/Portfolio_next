@@ -1,7 +1,7 @@
 'use client';
 import { Button } from "@nextui-org/button";
 import { Divider } from "@nextui-org/divider";
-import { MessageSquareQuote, Contact, ContactRound, Menu, LogOut } from "lucide-react";
+import { Menu, LogOut } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
@@ -20,24 +20,6 @@ interface SidebarProps {
   specificLinks: ISidebarLink[];
   title: string;
 }
-
-const commonLinks = [
-  {
-    label: "NewsFeed",
-    href: "/posts",
-    icon: <MessageSquareQuote size={18} />,
-  },
-  {
-    label: "About",
-    href: "/about",
-    icon: <ContactRound size={18} />,
-  },
-  {
-    label: "Contact",
-    href: "/contact",
-    icon: <Contact size={18} />,
-  },
-];
 
 const Sidebar = ({ specificLinks, title }: SidebarProps) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -118,21 +100,7 @@ const pathname = usePathname()
             </nav>
           </div>
           <Divider />
-          <div>
-            <nav className="space-y-1">
-              {commonLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  className="flex items-center gap-2 rounded-lg px-3 py-2 text-gray-600 hover:bg-gray-100"
-                  href={link.href}
-                >
-                  {link.icon}
-                  <span>{link.label}</span>
-                </Link>
-              ))}
-            </nav>
-          </div>
-          <Divider className="" />
+          
           <div className="cursor-pointer">
             <button className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-gray-600 hover:bg-gray-100"  onClick={handleLogout}>
               <LogOut />

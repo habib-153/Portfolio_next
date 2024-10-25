@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProjectServices = void 0;
+const QueryBuilder_1 = require("../../builder/QueryBuilder");
 const project_model_1 = require("./project.model");
 const createProjectIntoDB = (payload, images) => __awaiter(void 0, void 0, void 0, function* () {
     const { Images } = images;
@@ -18,7 +19,9 @@ const createProjectIntoDB = (payload, images) => __awaiter(void 0, void 0, void 
     return result;
 });
 const getAllProjectsFromDB = () => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield project_model_1.Project.find();
+    const query = {};
+    const projects = new QueryBuilder_1.QueryBuilder(project_model_1.Project.find(), query).sort();
+    const result = yield projects.modelQuery;
     return result;
 });
 const getSingleProjectFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {

@@ -43,7 +43,7 @@ class QueryBuilder {
     }
     sort() {
         var _a;
-        let sortBy = '-createdAt';
+        let sortBy = 'createdAt';
         if ((_a = this.query) === null || _a === void 0 ? void 0 : _a.sortBy) {
             sortBy = this.query.sortBy;
         }
