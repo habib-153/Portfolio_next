@@ -39,7 +39,18 @@ const getAllBlog = (0, catchAsync_1.catchAsync)((req, res) => __awaiter(void 0, 
         data: result,
     });
 }));
+const getSingleBlog = (0, catchAsync_1.catchAsync)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const result = yield blog_service_1.BlogServices.getSingleBlogFromDB(id);
+    (0, sendResponse_1.default)(res, {
+        success: true,
+        statusCode: http_status_1.default.OK,
+        message: 'Blog Retrieved Successfully',
+        data: result,
+    });
+}));
 exports.BlogControllers = {
     createBlog,
     getAllBlog,
+    getSingleBlog
 };

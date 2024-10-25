@@ -21,7 +21,12 @@ const getAllProjectsFromDB = () => __awaiter(void 0, void 0, void 0, function* (
     const result = yield project_model_1.Project.find();
     return result;
 });
+const getSingleProjectFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield project_model_1.Project.findById(id);
+    return result;
+});
 exports.ProjectServices = {
     createProjectIntoDB,
-    getAllProjectsFromDB
+    getAllProjectsFromDB,
+    getSingleProjectFromDB
 };

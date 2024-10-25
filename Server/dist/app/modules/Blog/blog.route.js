@@ -12,4 +12,5 @@ const blog_controller_1 = require("./blog.controller");
 const router = express_1.default.Router();
 router.post('/', (0, auth_1.default)('ADMIN'), multer_config_1.multerUpload.fields([{ name: 'Images' }]), bodyParser_1.parseBody, blog_controller_1.BlogControllers.createBlog);
 router.get('/', blog_controller_1.BlogControllers.getAllBlog);
+router.get('/:id', blog_controller_1.BlogControllers.getSingleBlog);
 exports.BlogRoutes = router;
