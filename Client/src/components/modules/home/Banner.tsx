@@ -10,7 +10,7 @@ import Img from "@/src/assets/IMG_4604-2.jpg";
 const PortfolioBanner = () => {
   return (
     <div>
-      <div className="max-w-screen-md mx-auto p-4">
+      <div className="max-w-screen-md mx-auto p-4" id="about">
         <div className="flex flex-col justify-center items-center gap-4 text-center">
           <Image
             alt="Picture of the Habib"
@@ -30,19 +30,20 @@ const PortfolioBanner = () => {
               technologies.
             </p>
             <div className="flex justify-center mt-4 gap-4">
-              <a
-                className="text-4xl text-[#0077B5]"
+              <a className="text-4xl text-[#0077B5]"
                 href="https://www.linkedin.com/in/habiburrahman153/"
                 rel="noopener noreferrer"
                 target="_blank"
+                title="LinkedIn Profile"
               >
                 <FaLinkedin className="mr-2" />
               </a>
               <a
-                className="text-4xl text-[#171515]"
+                className="text-4xl light:text-[#171515]"
                 href="https://github.com/habib-153"
                 rel="noopener noreferrer"
                 target="_blank"
+                title="GitHub Profile"
               >
                 <FaGithub className="mr-2" />
               </a>

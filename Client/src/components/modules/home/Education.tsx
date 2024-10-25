@@ -59,7 +59,7 @@ const EducationSection = () => {
         transition={{ duration: 0.5 }}
       >
         <h2 className="text-4xl font-bold mb-4">Education Journey</h2>
-        <p className="text-gray-600">My academic path and achievements</p>
+        <p className="light:text-gray-600">My academic path and achievements</p>
       </motion.div>
 
       <div className="relative">
@@ -108,23 +108,23 @@ const EducationSection = () => {
                 </CardHeader>
                 <CardBody>
                   <div className="space-y-3">
-                    <div className="flex items-center gap-2 text-gray-600">
+                    <div className="flex items-center gap-2 text-gray-600 dark:text-[#b2b5ba]">
                       <Calendar className="w-4 h-4" />
                       <span>{edu.duration}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-gray-600">
+                    <div className="flex items-center gap-2 text-gray-600 dark:text-[#b2b5ba]">
                       <MapPin className="w-4 h-4" />
                       <span>{edu.location}</span>
                     </div>
                     <div className="space-y-2">
                       {edu.achievements.map((achievement, i) => (
-                        <div key={i} className="flex items-center gap-2">
+                        <div key={i} className="flex items-center gap-2 dark:text-[#b2b5ba]">
                           <Award className="w-4 h-4 text-emerald-500" />
                           <span>{achievement}</span>
                         </div>
                       ))}
                     </div>
-                    <p className="text-gray-600">{edu.description}</p>
+                    <p className="text-gray-600 dark:text-[#b2b5ba]">{edu.description}</p>
                   </div>
                 </CardBody>
               </Card>

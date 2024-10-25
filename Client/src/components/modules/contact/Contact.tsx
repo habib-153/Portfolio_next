@@ -55,9 +55,9 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="max-w-4xl mx-auto px-4 py-12 text-center">
+    <section className="max-w-4xl mx-auto px-4 py-10 text-center" id="contact">
       <h1 className="text-4xl font-bold mb-4">Get in Touch</h1>
-      <p className="text-gray-600 mb-4">
+      <p className="text-gray-600 dark:text-[#b2b5ba] mb-4">
         Let&apos;s build something amazing together! Feel free to reach out to
         me if you have a project in mind or want to collaborate.
       </p>
@@ -87,6 +87,7 @@ const ContactSection = () => {
             href="https://www.linkedin.com/in/habiburrahman153/"
             rel="noopener noreferrer"
             target="_blank"
+            title="LinkedIn Profile"
           >
             <FaLinkedin className="w-5 h-5 text-[#0077B5]" />
           </a>
@@ -96,8 +97,9 @@ const ContactSection = () => {
             href="https://github.com/habib-153"
             rel="noopener noreferrer"
             target="_blank"
+            title="GitHub Profile"
           >
-            <FaGithub className="w-5 h-5 text-[#171515]" />
+            <FaGithub className="w-5 h-5 light:text-[#171515]" />
           </a>
         </Button>
       </div>

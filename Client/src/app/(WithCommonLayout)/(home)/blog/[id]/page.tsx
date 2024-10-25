@@ -24,7 +24,7 @@ const BlogDetails = () => {
   const [showGallery, setShowGallery] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  if(isLoading) return <Spinner />
+  if(isLoading) return <Spinner className="w-full text-center"/>
   const handleNextImage = () => {
     setCurrentImageIndex((prev) =>
       prev === blog.images.length - 1 ? 0 : prev + 1

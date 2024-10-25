@@ -50,7 +50,7 @@ const Skills = () => {
   );
 
   const Section = ({ type, skills }: { type: keyof typeof sectionTitles; skills: ISkill[] }) => (
-    <Card className="w-full shadow-none">
+    <Card className="w-full shadow-none my-2">
       <CardHeader className="flex flex-col gap-2">
         <h2 className="text-2xl font-bold text-center w-full">
           {sectionTitles[type]}
@@ -73,7 +73,7 @@ const Skills = () => {
   const sectionOrder = ['Language', 'Framework', 'Database', 'Others'];
 
   return (
-    <div className='max-w-screen-md mx-auto p-4'>
+    <div className='max-w-screen-md mx-auto p-4' id='skills'>
       {isLoading ? (
         <div>
           {sectionOrder.map((type) => (
