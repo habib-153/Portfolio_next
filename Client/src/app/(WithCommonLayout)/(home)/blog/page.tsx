@@ -17,16 +17,9 @@ const BlogPage = () => {
       <h2 className="text-4xl mb-4 font-semibold text-center">Blogs 📑</h2>
       <Divider />
       <div className="my-4">
-      {isLoading ? (
-        [...Array(3)].map((_, index) => (
-          <BlogCardSkeleton key={index} />
-        ))
-      ) : (
-        // Show actual blog cards once loaded
-        blogs.map((blog: IBlog) => (
-          <BlogCard key={blog._id} blog={blog} />
-        ))
-      )}
+        {isLoading
+          ? [...Array(3)].map((_, index) => <BlogCardSkeleton key={index} />)
+          : blogs.map((blog: IBlog) => <BlogCard key={blog._id} blog={blog} />)}
       </div>
     </div>
   );
