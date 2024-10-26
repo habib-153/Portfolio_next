@@ -61,7 +61,7 @@ const Resume = () => {
                 HABIBUR RAHMAN
               </h1>
               <h2 className="text-xl text-gray-600 mb-6">
-                MERN Stack Developer
+                Full Stack Developer
               </h2>
 
               <div className="flex flex-wrap justify-center gap-6 mb-6 text-gray-600">
@@ -193,13 +193,14 @@ const Resume = () => {
                       ],
                     },
                     {
-                      title: "My Building",
-                      link: "https://a-12-my-building.web.app/",
-                      tech: "JavaScript, HTML, CSS, React, Firebase, Tailwind, MongoDB, Node.js, Express.js, JWT",
+                      title: "DestinyDiary",
+                      link: "https://destiny-diary.vercel.app/",
+                      tech: "NextJs, TypeScript, Tailwind, MongoDb, Mongoose, Node.js, Express.js, jwt, Lodash, AmarPay, NextUi",
                       points: [
-                        "Profile Management & Notifications system",
-                        "Membership Automation workflow",
-                        "Coupon System & comprehensive admin dashboard",
+                        "Developed a full-stack travel platform using Next.js, TypeScript, and MongoDB, implementing JWT authentication, premium content management, and secure payment integration with Aamarpay",
+                        "Integrated rich text editors for travel guides and Aamarpay payment system for premium features",
+                        "Implemented user profiles with verification badges and role-based access control",
+                        "Developed responsive UI with Tailwind CSS including advanced search and admin dashboard"
                       ],
                     },
                   ].map((project) => (

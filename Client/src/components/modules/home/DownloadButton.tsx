@@ -4,7 +4,7 @@ import { Download } from "lucide-react";
 
 const DownloadButton = () => {
   return (
-    <a download="Habibur_Rahman_Resume.pdf" href="/HabiburRahmanResume_FrontEnd_Dev.pdf">
+    <a download="Habibur_Rahman_Resume.pdf" href="/HabiburRahmanResume.pdf">
       <Button
         className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-6 rounded-full 
                    flex items-center gap-2 mx-auto hover:shadow-lg transition-all duration-300 
