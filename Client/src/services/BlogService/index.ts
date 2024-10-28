@@ -27,3 +27,20 @@ export const getSingleBlog = async(id: string) => {
 
     return res.data;
 }
+
+export const updateBlog = async (id: string, data: FormData) => {
+    const res = await axiosInstance.put(`/blogs/${id}`, data);
+  
+    revalidateTag("blogs");
+  
+    return res.data;
+  };
+  
+  export const deleteBlog = async (id: string) => {
+    const res = await axiosInstance.delete(`/blogs/${id}`);
+  
+    revalidateTag("blogs");
+  
+    return res.data;
+  };
+  

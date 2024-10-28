@@ -5,6 +5,7 @@ import ContactSection from "@/src/components/modules/contact/Contact";
 import EducationSection from "@/src/components/modules/home/Education";
 import Skills from "@/src/components/modules/home/Skills";
 import ProjectOnHome from "@/src/components/modules/home/ProjectOnHome";
+import BlogOnHome from "@/src/components/modules/home/BlogOnHome";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Skills />
       <ProjectOnHome />
       <EducationSection />
+      <BlogOnHome />
       <ContactSection />
     </div>
   );

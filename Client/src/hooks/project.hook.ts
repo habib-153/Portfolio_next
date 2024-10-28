@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 
-import { createProject, getAllProject, getSingleProject } from "../services/ProjectService";
+import { createProject, deleteProject, getAllProject, getSingleProject, updateProject } from "../services/ProjectService";
 
 export const useCreateProject = () => {
   return useMutation<any, Error, FormData>({
@@ -30,3 +30,29 @@ export const useGetSingleProject = (id: string) => {
     enabled: !!id,
   });
 }
+
+export const useUpdateProject = () => {
+  return useMutation<any, Error, { id: string; data: FormData }>({
+    mutationKey: ["UPDATE_PROJECT"],
+    mutationFn: async ({ id, data }) => {
+      return toast.promise(updateProject(id, data), {
+        loading: "Updating Project...",
+        success: `Project updated successfully!`,
+        error: "Error when updating the Project.",
+      });
+    },
+  });
+};
+
+export const useDeleteProject = () => {
+  return useMutation<any, Error, { id: string }>({
+    mutationKey: ["DELETE_PROJECT"],
+    mutationFn: async ({id}) => {
+      return toast.promise(deleteProject(id), {
+        loading: "Deleting Project...",
+        success: `Project deleted successfully!`,
+        error: "Error when deleting the Project.",
+      });
+    },
+  });
+};

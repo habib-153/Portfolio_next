@@ -1,29 +1,45 @@
-'use server'
+"use server";
 import { revalidateTag } from "next/cache";
 
 import envConfig from "@/src/config/envConfig";
 import axiosInstance from "@/src/libs/AxiosInstance";
 
-export const createProject = async(data: FormData) => {
-    const res = await axiosInstance.post("/projects", data);
-    
-    revalidateTag('projects')
+export const createProject = async (data: FormData) => {
+  const res = await axiosInstance.post("/projects", data);
 
-    return res.data;
-}
+  revalidateTag("projects");
 
-export const getAllProject = async() => {
-    const res = await fetch(`${envConfig.baseApi}/projects`, {
-        next: {
-            tags: ['projects']
-        }
-    });
+  return res.data;
+};
 
-    return res.json();
-}
+export const getAllProject = async () => {
+  const res = await fetch(`${envConfig.baseApi}/projects`, {
+    next: {
+      tags: ["projects"],
+    },
+  });
 
-export const getSingleProject = async(id: string) => {
-    const res = await axiosInstance.get(`/projects/${id}`);
-    
-    return res.data;
-}
+  return res.json();
+};
+
+export const getSingleProject = async (id: string) => {
+  const res = await axiosInstance.get(`/projects/${id}`);
+
+  return res.data;
+};
+
+export const updateProject = async (id: string, data: FormData) => {
+  const res = await axiosInstance.put(`/projects/${id}`, data);
+
+  revalidateTag("projects");
+
+  return res.data;
+};
+
+export const deleteProject = async (id: string) => {
+  const res = await axiosInstance.delete(`/projects/${id}`);
+
+  revalidateTag("projects");
+
+  return res.data;
+};

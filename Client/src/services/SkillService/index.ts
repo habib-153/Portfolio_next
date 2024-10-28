@@ -32,3 +32,19 @@ export const getSkills = async () => {
 
   return res.json();
 };
+
+export const updateSkill = async (id: string, data: ISkill) => {
+  const res = await axiosInstance.put(`/skills/${id}`, data);
+
+  revalidateTag("skills");
+
+  return res.data;
+};
+
+export const deleteSkill = async (id: string) => {
+  const res = await axiosInstance.delete(`/skills/${id}`);
+
+  revalidateTag("skills");
+
+  return res.data;
+};
