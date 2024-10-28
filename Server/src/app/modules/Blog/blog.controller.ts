@@ -45,10 +45,41 @@ const getSingleBlog = catchAsync(async (req, res) => {
     message: 'Blog Retrieved Successfully',
     data: result,
   });
-})
+});
+
+const updateBlog = catchAsync(async (req, res) => {
+  const { id } = req.params;
+
+  const result = await BlogServices.updateBlogIntoDB(
+    id,
+    req.body,
+    req.files as TImageFiles
+  );
+
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: 'Blog updated successfully',
+    data: result,
+  });
+});
+
+const deleteBlog = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  await BlogServices.deleteBlogFromDB(id);
+
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: 'Blog deleted successfully',
+    data: null,
+  });
+});
 
 export const BlogControllers = {
   createBlog,
   getAllBlog,
-  getSingleBlog
+  getSingleBlog,
+  updateBlog,
+  deleteBlog,
 };

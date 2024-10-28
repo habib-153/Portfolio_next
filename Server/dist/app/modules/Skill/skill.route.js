@@ -10,4 +10,6 @@ const auth_1 = __importDefault(require("../../middlewares/auth"));
 const router = express_1.default.Router();
 router.post('/', (0, auth_1.default)('ADMIN'), skill_controller_1.SkillControllers.createSkill);
 router.get('/', skill_controller_1.SkillControllers.getAllSkills);
+router.put('/:id', (0, auth_1.default)('ADMIN'), skill_controller_1.SkillControllers.updateSkill);
+router.delete('/:id', (0, auth_1.default)('ADMIN'), skill_controller_1.SkillControllers.deleteSkill);
 exports.SkillRoutes = router;

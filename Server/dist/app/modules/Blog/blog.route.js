@@ -13,4 +13,6 @@ const router = express_1.default.Router();
 router.post('/', (0, auth_1.default)('ADMIN'), multer_config_1.multerUpload.fields([{ name: 'Images' }]), bodyParser_1.parseBody, blog_controller_1.BlogControllers.createBlog);
 router.get('/', blog_controller_1.BlogControllers.getAllBlog);
 router.get('/:id', blog_controller_1.BlogControllers.getSingleBlog);
+router.put('/:id', (0, auth_1.default)('ADMIN'), multer_config_1.multerUpload.fields([{ name: 'Images' }]), bodyParser_1.parseBody, blog_controller_1.BlogControllers.updateBlog);
+router.delete('/:id', (0, auth_1.default)('ADMIN'), blog_controller_1.BlogControllers.deleteBlog);
 exports.BlogRoutes = router;

@@ -44,8 +44,35 @@ const getSingleProject = catchAsync(async (req, res) => {
       });
 })
 
+const updateProject = catchAsync(async (req, res) => {
+    const { id } = req.params;
+  
+    const result = await ProjectServices.updateProjectIntoDB(id, req.body , req.files as TImageFiles);
+  
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: 'Project updated successfully',
+      data: result,
+    });
+  });
+  
+  const deleteProject = catchAsync(async (req, res) => {
+    const { id } = req.params;
+    await ProjectServices.deleteProjectFromDB(id);
+  
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: 'Project deleted successfully',
+      data: null,
+    });
+  });  
+
 export const ProjectControllers = {
     createProject,
     getAllProject,
-    getSingleProject
+    getSingleProject,
+    updateProject,
+    deleteProject
 }

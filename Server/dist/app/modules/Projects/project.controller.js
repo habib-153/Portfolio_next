@@ -49,8 +49,30 @@ const getSingleProject = (0, catchAsync_1.catchAsync)((req, res) => __awaiter(vo
         data: result,
     });
 }));
+const updateProject = (0, catchAsync_1.catchAsync)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const result = yield project_service_1.ProjectServices.updateProjectIntoDB(id, req.body, req.files);
+    (0, sendResponse_1.default)(res, {
+        success: true,
+        statusCode: http_status_1.default.OK,
+        message: 'Project updated successfully',
+        data: result,
+    });
+}));
+const deleteProject = (0, catchAsync_1.catchAsync)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    yield project_service_1.ProjectServices.deleteProjectFromDB(id);
+    (0, sendResponse_1.default)(res, {
+        success: true,
+        statusCode: http_status_1.default.OK,
+        message: 'Project deleted successfully',
+        data: null,
+    });
+}));
 exports.ProjectControllers = {
     createProject,
     getAllProject,
-    getSingleProject
+    getSingleProject,
+    updateProject,
+    deleteProject
 };

@@ -8,9 +8,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProjectServices = void 0;
+const http_status_1 = __importDefault(require("http-status"));
 const QueryBuilder_1 = require("../../builder/QueryBuilder");
+const AppError_1 = __importDefault(require("../../errors/AppError"));
 const project_model_1 = require("./project.model");
 const createProjectIntoDB = (payload, images) => __awaiter(void 0, void 0, void 0, function* () {
     const { Images } = images;
@@ -28,8 +33,29 @@ const getSingleProjectFromDB = (id) => __awaiter(void 0, void 0, void 0, functio
     const result = yield project_model_1.Project.findById(id);
     return result;
 });
+const updateProjectIntoDB = (id, payload, images) => __awaiter(void 0, void 0, void 0, function* () {
+    const projectData = yield project_model_1.Project.findById(id);
+    if (!projectData) {
+        throw new AppError_1.default(http_status_1.default.NOT_FOUND, 'Project not found');
+    }
+    const { Images } = images;
+    if (Images) {
+        payload.images = Images.map((image) => image.path);
+    }
+    const result = yield project_model_1.Project.findByIdAndUpdate(id, payload, {
+        runValidators: true,
+        new: true,
+    });
+    return result;
+});
+const deleteProjectFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield project_model_1.Project.findByIdAndDelete(id);
+    return result;
+});
 exports.ProjectServices = {
     createProjectIntoDB,
     getAllProjectsFromDB,
-    getSingleProjectFromDB
+    getSingleProjectFromDB,
+    updateProjectIntoDB,
+    deleteProjectFromDB,
 };

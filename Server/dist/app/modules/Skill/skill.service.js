@@ -19,7 +19,17 @@ const getAllSkillsFromDB = () => __awaiter(void 0, void 0, void 0, function* () 
     const result = yield skill_model_1.Skill.find();
     return result;
 });
+const updateSkillInDB = (id, payload) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield skill_model_1.Skill.findByIdAndUpdate(id, payload, { new: true });
+    return result;
+});
+const deleteSkillFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield skill_model_1.Skill.findByIdAndDelete(id);
+    return result;
+});
 exports.SkillServices = {
     createSkillInDB,
-    getAllSkillsFromDB
+    getAllSkillsFromDB,
+    updateSkillInDB,
+    deleteSkillFromDB
 };
