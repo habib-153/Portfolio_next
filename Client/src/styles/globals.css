@@ -2,32 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes moveAlong {
+@keyframes typing {
   from {
-    offset-distance: 0%;
+    width: 0;
   }
   to {
-    offset-distance: 100%;
+    width: 100%;
   }
 }
 
-@keyframes floatCloud {
-  from {
-    transform: translateX(-100%);
+@keyframes progress {
+  0% {
+    width: 0%;
   }
-  to {
-    transform: translateX(400%);
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
   }
 }
 
-.cloud-1 {
-  top: 20%;
-  left: -20%;
+.animate-typing {
+  animation: typing 3s steps(20) infinite;
 }
 
-.cloud-2 {
-  top: 40%;
-  left: -20%;
+.animate-progress {
+  animation: progress 2s ease-in-out infinite;
 }
 
 .scroll-on-hover {
