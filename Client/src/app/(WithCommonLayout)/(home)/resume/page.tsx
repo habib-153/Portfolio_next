@@ -2,11 +2,9 @@ import React from "react";
 import {
   Github,
   Linkedin,
-  Facebook,
   Mail,
   Phone,
   MapPin,
-  Award,
   Code,
   Briefcase,
   GraduationCap,
@@ -21,27 +19,27 @@ import DownloadButton from "@/src/components/modules/home/DownloadButton";
 const Resume = () => {
   const skills = {
     expertise: [
+      "React.js",
+      "TypeScript",
+      "Redux",
       "HTML",
       "CSS",
       "JavaScript",
-      "React.js",
       "Express.js",
       "Tailwind",
-      "TypeScript",
-      "Redux",
       "Ant Design",
     ],
     comfortable: [
+      "Next.js",
       "Node.js",
       "MongoDB",
       "Mongoose",
       "JWT",
-      "Python",
       "Material Tailwind",
-      "Next.js",
-      "Postman",
+      "RTK Query",
     ],
-    familiar: ["MaterialUI", "Flask"],
+    familiar: ["Material UI", "Framer motion", "Lottie", "Firebase"],
+    tools: ["Postman", "VS Code", "Nodemon", "MongoDB Compass", "Git"],
   };
 
   return (
@@ -100,13 +98,6 @@ const Resume = () => {
                 >
                   <Linkedin size={24} />
                 </a>
-                <a
-                  className="text-gray-600 hover:text-blue-600 transition-transform hover:scale-110"
-                  href="https://www.facebook.com/h.R4hM4n.8"
-                  title="Facebook Profile"
-                >
-                  <Facebook size={24} />
-                </a>
               </div>
 
               <DownloadButton />
@@ -114,21 +105,6 @@ const Resume = () => {
 
             {/* Sections */}
             <div className="space-y-8">
-              {/* Objective */}
-              <section>
-                <h2 className="text-2xl font-bold mb-4 flex items-center gap-3 text-gray-800 border-b pb-2">
-                  <Award className="text-blue-600" />
-                  OBJECTIVE
-                </h2>
-                <p className="text-gray-600 leading-relaxed">
-                  Passionate Front End Web Developer with React mastery and MERN
-                  stack expertise. Committed to building user-friendly,
-                  responsive UIs and staying updated on industry trends to
-                  create innovative, efficient solutions. Collaborative team
-                  player focused on exceeding client expectations.
-                </p>
-              </section>
-
               {/* Skills */}
               <section>
                 <h2 className="text-2xl font-bold mb-4 flex items-center gap-3 text-gray-800 border-b pb-2">
@@ -174,33 +150,53 @@ const Resume = () => {
                   {[
                     {
                       title: "VirtualDoc (Team Project)",
-                      link: "https://virtual-doc-site.web.app/",
+                      description:
+                        "Developed a user-friendly platform for virtual doctor consultations with secure video conferencing, enabling convenient appointment booking with secure payment integration and fostering patient engagement through interactive features.",
+                      links: {
+                        live: "https://virtual-doc-site.web.app/",
+                        client: "https://github.com/TeamTechTitans/VirtualDoc",
+                        server:
+                          "https://github.com/TeamTechTitans/VirtualDoc-Backend",
+                      },
                       tech: "React.js, JavaScript, Mongoose, Material Tailwind, SSLCOMMERZ, Node.js, Express.js",
                       points: [
-                        "Designed responsive user interfaces for key platform sections",
-                        "Integrated SSLCommerz for seamless appointment booking",
-                        "Developed dynamic comment system and BMI calculator",
+                        "Designed responsive user interfaces for key platform sections, including home page, tips management, dashboard etc.",
+                        "Integrated SSLCommerz for seamless and secure appointment booking with payments.",
+                        "Developed some sections like dynamic comment for user interaction, BMI calculation.",
                       ],
                     },
                     {
                       title: "Shine Slot",
-                      link: "https://shine-slot-client.vercel.app/",
-                      tech: "ReactJs, JavaScript, Redux, TypeScript, Ant Design, ExpressJs, Mongoose, JWT, AmarPay",
+                      description:
+                        "A Car Wash Booking System, also a user-friendly web application designed to simplify the car wash booking process. It  provides an intuitive interface for users to browse services, book appointments, and manage their bookings.",
+                      links: {
+                        live: "https://shine-slot-client.vercel.app/",
+                        client: "https://github.com/habib-153/ShineSlot_Client",
+                        server:
+                          "https://github.com/habib-153/A3_V1_CarWashingSystem",
+                      },
+
+                      tech: "ReactJs, JavaScript, Redux, TypeScript, Prettier, Ant Design, ExpressJs, Mongoose, JWT, AmarPay.",
                       points: [
                         "User Authentication & Role-Based Access: Secure sign-up/login, role-based control",
-                        "Service Management & Booking System: Browse/filter services, real-time slots",
-                        "User Dashboard & Review System: Personalized dashboard, interactive reviews",
+                        "Service Management & Booking System:  Browse/filter  services, real-time slots, integrated payment, admin dashboard.",
+                        "User Dashboard & Review System:   Personalized dashboard,  interactive reviews, booking countdown timers",
                       ],
                     },
                     {
                       title: "DestinyDiary",
-                      link: "https://destiny-diary.vercel.app/",
+                      description:
+                        "DestinyDiary is a vibrant community platform where travel enthusiasts can Share personal travel stories and experiences,  Exchange valuable tips and destination guides. Connect and interact with fellow travelers.",
+                      links: {
+                        live: "https://destiny-diary.vercel.app/",
+                        client: "https://github.com/habib-153/DestinyDiary",
+                        server: "https://github.com/habib-153/DestinyDiary",
+                      },
                       tech: "NextJs, TypeScript, Tailwind, MongoDb, Mongoose, Node.js, Express.js, jwt, Lodash, AmarPay, NextUi",
                       points: [
-                        "Developed a full-stack travel platform using Next.js, TypeScript, and MongoDB, implementing JWT authentication, premium content management, and secure payment integration with Aamarpay",
                         "Integrated rich text editors for travel guides and Aamarpay payment system for premium features",
                         "Implemented user profiles with verification badges and role-based access control",
-                        "Developed responsive UI with Tailwind CSS including advanced search and admin dashboard"
+                        "Developed responsive UI with Tailwind CSS including advanced search and admin dashboard",
                       ],
                     },
                   ].map((project) => (
@@ -212,19 +208,47 @@ const Resume = () => {
                         <h3 className="text-xl dark:text-gray-700 font-semibold mb-2">
                           {project.title}
                         </h3>
-                        <a
-                          className="text-blue-600 hover:underline inline-flex items-center gap-2 mb-2 
-                                    transition-colors hover:text-blue-700"
-                          href={project.link}
-                        >
-                          Live Demo <span>→</span>
-                        </a>
-                        <div>
+
+                        {/* Project Description */}
+                        <p className="text-gray-600 mb-4">
+                          {project.description}
+                        </p>
+
+                        {/* Links Section */}
+                        {project.links && (
+                          <div className="flex gap-4 mb-4">
+                            <a
+                              className="text-blue-600 hover:underline inline-flex items-center gap-1 text-sm"
+                              href={project.links.live}
+                            >
+                              Live Demo <span>→</span>
+                            </a>
+                            <a
+                              className="text-blue-600 hover:underline inline-flex items-center gap-1 text-sm"
+                              href={project.links.client}
+                            >
+                              Client-Side <span>→</span>
+                            </a>
+                            {project.links.server && (
+                              <a
+                                className="text-blue-600 hover:underline inline-flex items-center gap-1 text-sm"
+                                href={project.links.server}
+                              >
+                                Server-Side <span>→</span>
+                              </a>
+                            )}
+                          </div>
+                        )}
+
+                        {/* Technology Section */}
+                        <div className="mb-4">
                           <h4 className="font-medium text-gray-700 mb-2">
                             Technology Used:
                           </h4>
-                          <p className="text-gray-600 mb-3">{project.tech}</p>
+                          <p className="text-gray-600">{project.tech}</p>
                         </div>
+
+                        {/* Key Features Section */}
                         <div>
                           <h4 className="font-medium text-gray-700 mb-2">
                             Key Features:
