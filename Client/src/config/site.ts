@@ -2,7 +2,7 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Habibur Rahman Portfolio",
-  description: "Make beautiful websites regardless of your design experience.",
+  description: "Full Stack Developer specializing in Next.js, React.js, TypeScript, and Node.js. Building responsive, user-centric web applications with modern technologies. Experienced in developing secure, scalable solutions with interactive features.",
   navItems: [
     {
       label: "Resume",
